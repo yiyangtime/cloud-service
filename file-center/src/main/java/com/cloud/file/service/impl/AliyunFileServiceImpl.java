@@ -13,8 +13,8 @@ import com.cloud.file.model.FileSource;
 /**
  * 阿里云存储文件
  * 
- * @author 小威老师 xiaoweijiagou@163.com
- *
+ * @author LS
+ * @date 2018年12月18日下午3:37:35
  */
 @Service("aliyunFileServiceImpl")
 public class AliyunFileServiceImpl extends AbstractFileService {

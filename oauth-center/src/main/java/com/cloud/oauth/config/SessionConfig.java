@@ -5,8 +5,8 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 /**
  * 开启session共享
  * 
- * @author 小威老师 xiaoweijiagou@163.com
- *
+ * @author LS
+ * @date 2018年12月18日下午4:20:00
  */
 @EnableRedisHttpSession
 public class SessionConfig {

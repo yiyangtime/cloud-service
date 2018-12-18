@@ -5,6 +5,12 @@ import java.util.Date;
 
 import lombok.Data;
 
+/**
+ * APP用户
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:04:03
+ */
 @Data
 public class AppUser implements Serializable {
 

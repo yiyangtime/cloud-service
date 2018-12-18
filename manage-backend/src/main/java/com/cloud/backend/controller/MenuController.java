@@ -17,6 +17,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 菜单管理Controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:06:51
+ */
 @RestController
 @RequestMapping("/menus")
 public class MenuController {
@@ -36,7 +42,6 @@ public class MenuController {
 		if (CollectionUtils.isEmpty(roles)) {
 			return Collections.emptyList();
 		}
-
 		List<Menu> menus = menuService
 				.findByRoles(roles.parallelStream().map(SysRole::getId).collect(Collectors.toSet()));
 
@@ -45,7 +50,6 @@ public class MenuController {
 		firstLevelMenus.forEach(m -> {
 			setChild(m, menus);
 		});
-
 		return firstLevelMenus;
 	}
 
@@ -64,8 +68,10 @@ public class MenuController {
 	/**
 	 * 给角色分配菜单
 	 *
-	 * @param roleId  角色id
-	 * @param menuIds 菜单ids
+	 * @param roleId
+	 *            角色id
+	 * @param menuIds
+	 *            菜单ids
 	 */
 	@LogAnnotation(module = "分配菜单")
 	@PreAuthorize("hasAuthority('back:menu:set2role')")
@@ -97,7 +103,6 @@ public class MenuController {
 		all.forEach(menu -> {
 			if (parentId.equals(menu.getParentId())) {
 				list.add(menu);
-
 				List<Menu> child = new ArrayList<>();
 				menu.setChild(child);
 				setMenuTree(menu.getId(), all, child);
@@ -126,7 +131,6 @@ public class MenuController {
 	@PostMapping
 	public Menu save(@RequestBody Menu menu) {
 		menuService.save(menu);
-
 		return menu;
 	}
 
@@ -140,7 +144,6 @@ public class MenuController {
 	@PutMapping
 	public Menu update(@RequestBody Menu menu) {
 		menuService.update(menu);
-
 		return menu;
 	}
 
@@ -165,7 +168,6 @@ public class MenuController {
 		List<Menu> all = menuService.findAll();
 		List<Menu> list = new ArrayList<>();
 		setSortTable(0L, all, list);
-
 		return list;
 	}
 

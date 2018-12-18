@@ -9,8 +9,8 @@ import com.aliyun.oss.OSSClient;
 /**
  * 阿里云配置
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:32:49
  */
 @Configuration
 public class AliyunConfig {

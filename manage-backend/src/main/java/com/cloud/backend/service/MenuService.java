@@ -5,6 +5,12 @@ import java.util.Set;
 
 import com.cloud.backend.model.Menu;
 
+/**
+ * 菜单管理服务接口
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:09:16
+ */
 public interface MenuService {
 
 	void save(Menu menu);

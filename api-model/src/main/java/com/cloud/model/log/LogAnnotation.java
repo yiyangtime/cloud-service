@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 /**
  * 日志注解
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:00:29
  */
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

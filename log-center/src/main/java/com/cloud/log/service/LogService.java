@@ -5,6 +5,12 @@ import java.util.Map;
 import com.cloud.model.common.Page;
 import com.cloud.model.log.Log;
 
+/**
+ * 日志服务接口
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:59:20
+ */
 public interface LogService {
 
 	/**

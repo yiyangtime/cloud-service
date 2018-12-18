@@ -10,15 +10,16 @@ import lombok.NoArgsConstructor;
 
 /**
  * 日志对象
+ * 
+ * @author LS
+ * @date 2018年12月18日下午2:58:59
  */
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Log implements Serializable {
-
 	private static final long serialVersionUID = -5398795297842978376L;
-
 	private Long id;
 	/** 用户名 */
 	private String username;

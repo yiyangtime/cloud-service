@@ -9,25 +9,64 @@ import java.util.Date;
 
 /**
  * 微信个人用户信息
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:10:45
  */
 @Getter
 @Setter
 @ToString
 public class WechatUserInfo implements Serializable {
 
-    private static final long serialVersionUID = 6750304307961875043L;
+	private static final long serialVersionUID = 6750304307961875043L;
 
-    private Long id;
-    private String openid;
-    private String unionid;
-    private Long userId;
-    private String app;
-    private String nickname;
-    private String sex;
-    private String province;
-    private String city;
-    private String country;
-    private String headimgurl;
-    private Date createTime;
-    private Date updateTime;
+	private Long id;
+	/**
+	 * 微信openid
+	 */
+	private String openid;
+	/**
+	 * 微信unionid
+	 */
+	private String unionid;
+	/**
+	 * 绑定用户的id
+	 */
+	private Long userId;
+	/**
+	 * 公众号标识
+	 */
+	private String app;
+	/**
+	 * 微信昵称
+	 */
+	private String nickname;
+	/**
+	 * 微信返回的性别
+	 */
+	private String sex;
+	/**
+	 * 微信返回的省
+	 */
+	private String province;
+	/**
+	 * 微信返回的城市
+	 */
+	private String city;
+	/**
+	 * 微信返回的国家
+	 */
+	private String country;
+	/**
+	 * 微信头像
+	 */
+	private String headimgurl;
+	/**
+	 * 创建时间
+	 */
+	private Date createTime;
+	/**
+	 * 修改时间
+	 */
+	private Date updateTime;
 }

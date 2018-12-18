@@ -8,8 +8,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * 线程池配置、启用异步
- *
- * @author 小威老师
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:15:19
  */
 @EnableAsync(proxyTargetClass = true)
 @Configuration
@@ -20,7 +21,6 @@ public class AsycTaskExecutorConfig {
 		ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
 		taskExecutor.setCorePoolSize(50);
 		taskExecutor.setMaxPoolSize(100);
-
 		return taskExecutor;
 	}
 }

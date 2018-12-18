@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * 权限管理Controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:25:32
+ */
 @RestController
 public class SysPermissionController {
 
@@ -33,9 +39,7 @@ public class SysPermissionController {
 		if (StringUtils.isBlank(sysPermission.getName())) {
 			throw new IllegalArgumentException("权限名不能为空");
 		}
-
 		sysPermissionService.save(sysPermission);
-
 		return sysPermission;
 	}
 
@@ -51,9 +55,7 @@ public class SysPermissionController {
 		if (StringUtils.isBlank(sysPermission.getName())) {
 			throw new IllegalArgumentException("权限名不能为空");
 		}
-
 		sysPermissionService.update(sysPermission);
-
 		return sysPermission;
 	}
 

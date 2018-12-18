@@ -16,8 +16,8 @@ import com.cloud.file.service.FileService;
  * FileService工厂<br>
  * 将各个实现类放入map
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:33:27
  */
 @Configuration
 public class FileServiceFactory {
@@ -45,12 +45,10 @@ public class FileServiceFactory {
 		if (StringUtils.isBlank(fileSource)) {// 默认用本地存储
 			return localFileServiceImpl;
 		}
-
 		FileService fileService = map.get(FileSource.valueOf(fileSource));
 		if (fileService == null) {
 			throw new IllegalArgumentException("请检查FileServiceFactory类的init方法，看是否有" + fileSource + "对应的实现类");
 		}
-
 		return fileService;
 	}
 }

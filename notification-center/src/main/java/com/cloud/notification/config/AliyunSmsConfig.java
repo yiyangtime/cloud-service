@@ -12,6 +12,9 @@ import com.aliyuncs.profile.IClientProfile;
 
 /**
  * 阿里云短信配置
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:14:56
  */
 @Configuration
 public class AliyunSmsConfig {
@@ -32,9 +35,7 @@ public class AliyunSmsConfig {
 		// 初始化ascClient,暂时不支持多region（请勿修改）
 		IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, accessKeySecret);
 		DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", product, domain);
-
 		IAcsClient acsClient = new DefaultAcsClient(profile);
-
 		return acsClient;
 	}
 

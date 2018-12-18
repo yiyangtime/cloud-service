@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 /**
  * redis存储授权码
  * 
- * @author 小威老师 xiaoweijiagou@163.com
- *
+ * @author LS
+ * @date 2018年12月18日下午4:21:56
  */
 @Service
 public class RedisAuthorizationCodeServices extends RandomValueAuthorizationCodeServices {

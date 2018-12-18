@@ -16,6 +16,12 @@ import com.cloud.model.common.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * IP黑名单服务
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:10:11
+ */
 @Slf4j
 @Service
 public class BlackIPServiceImpl implements BlackIPService {

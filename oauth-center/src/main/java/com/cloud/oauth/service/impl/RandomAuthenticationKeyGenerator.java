@@ -7,16 +7,16 @@ import java.util.UUID;
 
 /**
  * 解决同一username每次登陆access_token都相同的问题,看下RedisTokenStore的方法getAccessToken便知<br>
- * 2018.08.04添加
  *
- * @author 小威老师 xiaoweijiagou@163.com
  * @see org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator
  * @see org.springframework.security.oauth2.provider.token.TokenStore
+ * @author LS
+ * @date 2018年12月18日下午4:21:31
  */
 public class RandomAuthenticationKeyGenerator implements AuthenticationKeyGenerator {
 
-    @Override
-    public String extractKey(OAuth2Authentication authentication) {
-        return UUID.randomUUID().toString();
-    }
+	@Override
+	public String extractKey(OAuth2Authentication authentication) {
+		return UUID.randomUUID().toString();
+	}
 }

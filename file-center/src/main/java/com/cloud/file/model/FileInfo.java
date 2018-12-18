@@ -5,6 +5,12 @@ import java.util.Date;
 
 import lombok.Data;
 
+/**
+ * 文件信息
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:36:43
+ */
 @Data
 public class FileInfo implements Serializable {
 

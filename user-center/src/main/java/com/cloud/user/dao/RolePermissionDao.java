@@ -11,8 +11,9 @@ import com.cloud.model.user.SysPermission;
 /**
  * 角色权限关系<br>
  * 角色和权限是多对多关系，sys_role_permission是中间表
- *
- * @author 小威老师
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:27:18
  */
 @Mapper
 public interface RolePermissionDao {

@@ -7,8 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * 管理后台
  * 
- * @author 小威老师 xiaoweijiagou@163.com
- *
+ * @author LS
+ * @date 2018年12月18日下午4:12:20
  */
 @EnableDiscoveryClient
 @SpringBootApplication

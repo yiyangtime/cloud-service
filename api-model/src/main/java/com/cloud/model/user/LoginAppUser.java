@@ -16,15 +16,15 @@ import lombok.Setter;
 
 /**
  * spring security当前登录对象
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:04:26
  */
 @Getter
 @Setter
 public class LoginAppUser extends AppUser implements UserDetails {
-
 	private static final long serialVersionUID = 1753977564987556640L;
-
 	private Set<SysRole> sysRoles;
-
 	private Set<String> permissions;
 
 	@JsonIgnore
@@ -46,7 +46,6 @@ public class LoginAppUser extends AppUser implements UserDetails {
 				collection.add(new SimpleGrantedAuthority(per));
 			});
 		}
-
 		return collection;
 	}
 

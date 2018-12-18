@@ -7,16 +7,17 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * 监控中心
- *
- * @author 小威老师 xiaoweijiagou@163.com
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:14:25
  */
 @EnableAdminServer
 @EnableDiscoveryClient
 @SpringBootApplication
 public class MonitorApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MonitorApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(MonitorApplication.class, args);
+	}
 
 }

@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 角色管理Controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:26:03
+ */
 @RestController
 public class SysRoleController {
 
@@ -73,8 +79,10 @@ public class SysRoleController {
 	/**
 	 * 管理后台给角色分配权限
 	 *
-	 * @param id            角色id
-	 * @param permissionIds 权限ids
+	 * @param id
+	 *            角色id
+	 * @param permissionIds
+	 *            权限ids
 	 */
 	@LogAnnotation(module = "分配权限")
 	@PreAuthorize("hasAuthority('back:role:permission:set')")

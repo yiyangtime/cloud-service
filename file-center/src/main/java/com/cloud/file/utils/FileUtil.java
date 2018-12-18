@@ -10,11 +10,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cloud.file.model.FileInfo;
 
+/**
+ * 文件管理工具类
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:40:57
+ */
 public class FileUtil {
 
 	public static FileInfo getFileInfo(MultipartFile file) throws Exception {
 		String md5 = fileMd5(file.getInputStream());
-
 		FileInfo fileInfo = new FileInfo();
 		fileInfo.setId(md5);// 将文件的md5设置为文件表的id
 		fileInfo.setName(file.getOriginalFilename());
@@ -22,7 +27,6 @@ public class FileUtil {
 		fileInfo.setIsImg(fileInfo.getContentType().startsWith("image/"));
 		fileInfo.setSize(file.getSize());
 		fileInfo.setCreateTime(new Date());
-
 		return fileInfo;
 	}
 
@@ -38,7 +42,6 @@ public class FileUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 
@@ -55,7 +58,6 @@ public class FileUtil {
 			if (targetFile.exists()) {
 				return path;
 			}
-
 			if (!targetFile.getParentFile().exists()) {
 				targetFile.getParentFile().mkdirs();
 			}
@@ -79,17 +81,14 @@ public class FileUtil {
 		File file = new File(pathname);
 		if (file.exists()) {
 			boolean flag = file.delete();
-
 			if (flag) {
 				File[] files = file.getParentFile().listFiles();
 				if (files == null || files.length == 0) {
 					file.getParentFile().delete();
 				}
 			}
-
 			return flag;
 		}
-
 		return false;
 	}
 }

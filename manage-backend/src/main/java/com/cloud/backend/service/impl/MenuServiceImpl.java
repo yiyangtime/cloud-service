@@ -16,6 +16,12 @@ import com.cloud.backend.service.MenuService;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 菜单管理服务
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:10:45
+ */
 @Slf4j
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -39,7 +45,6 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public void update(Menu menu) {
 		menu.setUpdateTime(new Date());
-
 		menuDao.update(menu);
 		log.info("修改菜单：{}", menu);
 	}
@@ -48,11 +53,9 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public void delete(Long id) {
 		Menu menu = menuDao.findById(id);
-
 		menuDao.deleteByParentId(id);
 		menuDao.delete(id);
 		roleMenuDao.delete(null, id);
-
 		log.info("删除菜单：{}", menu);
 	}
 

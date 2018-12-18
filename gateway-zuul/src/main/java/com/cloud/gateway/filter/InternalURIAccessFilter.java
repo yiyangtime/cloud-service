@@ -18,8 +18,8 @@ import com.netflix.zuul.context.RequestContext;
  * 用户系统提供的查询接口/users-anon/internal肯定不能做登录拦截，而该接口也不能对外网暴露<br>
  * 如果有此类场景的uri，请用这种命名格式，
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:46:36
  */
 @Component
 public class InternalURIAccessFilter extends ZuulFilter {
@@ -30,7 +30,6 @@ public class InternalURIAccessFilter extends ZuulFilter {
 		requestContext.setResponseStatusCode(HttpStatus.FORBIDDEN.value());
 		requestContext.setResponseBody(HttpStatus.FORBIDDEN.getReasonPhrase());
 		requestContext.setSendZuulResponse(false);
-
 		return null;
 	}
 
@@ -38,7 +37,6 @@ public class InternalURIAccessFilter extends ZuulFilter {
 	public boolean shouldFilter() {
 		RequestContext requestContext = RequestContext.getCurrentContext();
 		HttpServletRequest request = requestContext.getRequest();
-
 		return PatternMatchUtils.simpleMatch("*-anon/internal*", request.getRequestURI());
 	}
 

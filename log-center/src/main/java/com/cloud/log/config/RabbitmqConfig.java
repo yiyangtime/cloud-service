@@ -9,8 +9,8 @@ import com.cloud.model.log.constants.LogQueue;
 /**
  * rabbitmq配置
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:53:25
  */
 @Configuration
 public class RabbitmqConfig {

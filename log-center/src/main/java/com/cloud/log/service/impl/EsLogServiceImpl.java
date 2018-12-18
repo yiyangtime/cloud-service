@@ -42,10 +42,11 @@ import com.cloud.model.log.Log;
 
 /**
  * 日志存储到elasticsearch实现
- *
- * @author 小威老师 xiaoweijiagou@163.com
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:57:52
  */
-//@Service
+// @Service
 public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 
 	private static final Logger logger = LoggerFactory.getLogger(EsLogServiceImpl.class);
@@ -72,9 +73,7 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 			log.setFlag(Boolean.TRUE);
 		}
 		logger.info("{}", log);
-
 		String string = JSONObject.toJSONString(log);
-
 		IndexRequestBuilder builder = client.prepareIndex(INDEX, TYPE).setSource(string, XContentType.JSON);
 		builder.execute();
 	}
@@ -84,20 +83,18 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 		SearchRequestBuilder builder = client.prepareSearch().setIndices(INDEX).setTypes(TYPE);
 		if (!CollectionUtils.isEmpty(params)) {
 			BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery();
-
 			// 用户名模糊匹配
 			String username = MapUtils.getString(params, "username");
 			if (StringUtils.isNoneBlank(username)) {
 				queryBuilder.must(QueryBuilders.wildcardQuery("username", "*" + username + "*"));
 			}
-
 			// 模块精确匹配 2018.07.29改为模糊匹配
 			String module = MapUtils.getString(params, "module");
 			if (StringUtils.isNoneBlank(module)) {
-//				queryBuilder.must(QueryBuilders.matchQuery("module", module));
+				// queryBuilder.must(QueryBuilders.matchQuery("module",
+				// module));
 				queryBuilder.must(QueryBuilders.wildcardQuery("module", "*" + module + "*"));
 			}
-
 			String flag = MapUtils.getString(params, "flag");
 			if (StringUtils.isNoneBlank(flag)) {
 				Boolean bool = Boolean.FALSE;
@@ -106,7 +103,6 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 				}
 				queryBuilder.must(QueryBuilders.matchQuery("flag", bool));
 			}
-
 			// 大于等于开始日期,格式yyyy-MM-dd
 			String beginTime = MapUtils.getString(params, "beginTime");
 			if (StringUtils.isNoneBlank(beginTime)) {
@@ -114,7 +110,6 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 				Long timestamp = toTimestamp(beginTime + "T00:00:00");
 				queryBuilder.must(QueryBuilders.rangeQuery("createTime").from(timestamp));
 			}
-
 			// 小于等于结束日期,格式yyyy-MM-dd
 			String endTime = MapUtils.getString(params, "endTime");
 			if (StringUtils.isNoneBlank(endTime)) {
@@ -122,31 +117,24 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 				Long timestamp = toTimestamp(endTime + "T23:59:59");
 				queryBuilder.must(QueryBuilders.rangeQuery("createTime").to(timestamp));
 			}
-
 			if (queryBuilder != null) {
 				builder.setPostFilter(queryBuilder);
 			}
 		}
-
 		builder.addSort("createTime", SortOrder.DESC);
-
 		PageUtil.pageParamConver(params, true);
 		Integer start = MapUtils.getInteger(params, PageUtil.START);
 		if (start != null) {
 			builder.setFrom(start);
 		}
-
 		Integer length = MapUtils.getInteger(params, PageUtil.LENGTH);
 		if (length != null) {
 			builder.setSize(length);
 		}
-
 		SearchResponse searchResponse = builder.get();
-
 		SearchHits searchHits = searchResponse.getHits();
 		// 总数量
 		Long total = searchHits.getTotalHits();
-
 		int size = searchHits.getHits().length;
 		List<Log> list = new ArrayList<>(size);
 		if (size > 0) {
@@ -155,14 +143,12 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 				list.add(JSONObject.parseObject(val, Log.class));
 			});
 		}
-
 		return new Page<>(total.intValue(), list);
 	}
 
 	private Long toTimestamp(String str) {
 		LocalDateTime localDateTime = LocalDateTime.parse(str);
 		Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-
 		return date.getTime();
 	}
 
@@ -184,7 +170,6 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 		if (!flag) {
 			return;
 		}
-
 		try {
 			// 判断索引是否存在
 			IndicesExistsResponse indicesExistsResponse = client.admin().indices()
@@ -197,9 +182,7 @@ public class EsLogServiceImpl implements LogService, ApplicationContextAware {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
-
 		CreateIndexRequestBuilder requestBuilder = client.admin().indices().prepareCreate(INDEX);
-
 		CreateIndexResponse createIndexResponse = requestBuilder.execute().actionGet();
 		if (createIndexResponse.isAcknowledged()) {
 			logger.info("索引：{},创建成功", INDEX);

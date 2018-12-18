@@ -14,6 +14,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 黑名单IP管理Controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:05:38
+ */
 @RestController
 public class BlackIPController {
 

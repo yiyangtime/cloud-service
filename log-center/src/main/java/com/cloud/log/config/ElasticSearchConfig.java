@@ -26,13 +26,13 @@ public class ElasticSearchConfig {
 
 	private String clusterNodes;
 
-    /**
-     * 使用elasticsearch实现类时才触发
-     *
-     * @return
-     */
+	/**
+	 * 使用elasticsearch实现类时才触发
+	 * 
+	 * @return
+	 */
 	@Bean
-    @ConditionalOnBean(value = EsLogServiceImpl.class)
+	@ConditionalOnBean(value = EsLogServiceImpl.class)
 	public TransportClient getESClient() {
 		// 设置集群名字
 		Settings settings = Settings.builder().put("cluster.name", this.clusterName).build();

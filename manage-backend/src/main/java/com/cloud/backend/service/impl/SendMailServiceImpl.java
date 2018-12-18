@@ -13,10 +13,10 @@ import com.cloud.backend.service.SendMailService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 邮件发送
+ * 邮件发送服务
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午4:11:22
  */
 @Slf4j
 @Service
@@ -35,31 +35,29 @@ public class SendMailServiceImpl implements SendMailService {
 	/**
 	 * 发送邮件
 	 *
-	 * @param toUser  收件人邮件地址
-	 * @param subject 标题
-	 * @param text    正文
+	 * @param toUser
+	 *            收件人邮件地址
+	 * @param subject
+	 *            标题
+	 * @param text
+	 *            正文
 	 * @return
 	 */
 	@Override
 	public boolean sendMail(String toUser, String subject, String text) {
 		try {
 			MimeMessage message = javaMailSender.createMimeMessage();
-
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
 			helper.setFrom(serverMail);
 			helper.setTo(toUser);
 			helper.setSubject(subject);
 			helper.setText(text, true);
-
 			javaMailSender.send(message);
-
 			log.info("发送邮件to:{},主题：{},内容：{}", toUser, subject, text);
 		} catch (Exception e) {
 			log.error("", e);
-
 			return Boolean.FALSE;
 		}
-
 		return Boolean.TRUE;
 
 	}

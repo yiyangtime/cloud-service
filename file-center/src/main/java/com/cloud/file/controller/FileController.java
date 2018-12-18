@@ -17,6 +17,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 文件管理controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:35:34
+ */
 @RestController
 @RequestMapping("/files")
 public class FileController {
@@ -56,13 +62,11 @@ public class FileController {
 	public Map<String, Object> uploadLayui(@RequestParam("file") MultipartFile file, String fileSource)
 			throws Exception {
 		FileInfo fileInfo = upload(file, fileSource);
-
 		Map<String, Object> map = new HashMap<>();
 		map.put("code", 0);
 		Map<String, Object> data = new HashMap<>();
 		data.put("src", fileInfo.getUrl());
 		map.put("data", data);
-
 		return map;
 	}
 

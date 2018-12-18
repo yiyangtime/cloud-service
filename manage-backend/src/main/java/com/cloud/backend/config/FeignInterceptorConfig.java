@@ -19,8 +19,8 @@ import feign.RequestTemplate;
  * header的话，是Authorization:Bearer xxx<br>
  * 我们默认放在header里
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午4:03:22
  */
 @Configuration
 public class FeignInterceptorConfig {
@@ -38,13 +38,13 @@ public class FeignInterceptorConfig {
 						String access_token = details.getTokenValue();
 
 						template.header("Authorization", OAuth2AccessToken.BEARER_TYPE + " " + access_token);
-//						template.query(OAuth2AccessToken.ACCESS_TOKEN, access_token);
+						// template.query(OAuth2AccessToken.ACCESS_TOKEN,
+						// access_token);
 					}
 
 				}
 			}
 		};
-
 		return requestInterceptor;
 	}
 }

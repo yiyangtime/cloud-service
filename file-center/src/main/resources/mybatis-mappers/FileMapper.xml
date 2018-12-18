@@ -6,7 +6,7 @@
 	<sql id="where">
 		<where>
 			<if test="name != null and name != ''">
-				<bind name="_name" value="'%' + name + '%'"/>
+				<bind name="_name" value="'%' + name + '%'" />
 				and t.name like #{_name}
 			</if>
 			<if test="beginTime != null and beginTime != ''">

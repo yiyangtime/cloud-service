@@ -16,6 +16,12 @@ import com.cloud.notification.model.VerificationCode;
 import com.cloud.notification.service.SmsService;
 import com.cloud.notification.service.VerificationCodeService;
 
+/**
+ * 短信管理Controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午4:16:22
+ */
 @RestController
 public class SmsController {
 
@@ -33,9 +39,7 @@ public class SmsController {
 		if (!PhoneUtil.checkPhone(phone)) {
 			throw new IllegalArgumentException("手机号格式不正确");
 		}
-
 		VerificationCode verificationCode = verificationCodeService.generateCode(phone);
-
 		return verificationCode;
 	}
 

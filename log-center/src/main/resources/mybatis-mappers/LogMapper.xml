@@ -6,11 +6,11 @@
 	<sql id="where">
 		<where>
 			<if test="username != null and username != ''">
-				<bind name="_username" value="'%' + username + '%'"/>
+				<bind name="_username" value="'%' + username + '%'" />
 				and t.username like #{_username}
 			</if>
 			<if test="module != null and module != ''">
-				<bind name="_module" value="'%' + module + '%'"/>
+				<bind name="_module" value="'%' + module + '%'" />
 				and t.module like #{_module}
 			</if>
 			<if test="flag != null and flag != ''">

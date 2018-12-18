@@ -14,8 +14,8 @@ import com.cloud.common.constants.PermitAllUrl;
 /**
  * 资源服务配置
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:34:09
  */
 @EnableResourceServer
 @EnableWebSecurity

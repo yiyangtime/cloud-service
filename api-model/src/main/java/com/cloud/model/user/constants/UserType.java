@@ -3,8 +3,8 @@ package com.cloud.model.user.constants;
 /**
  * 用户类型
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:03:35
  */
 public enum UserType {
 

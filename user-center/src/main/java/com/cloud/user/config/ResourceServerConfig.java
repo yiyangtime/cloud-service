@@ -15,9 +15,10 @@ import com.cloud.common.constants.PermitAllUrl;
 /**
  * 资源服务配置
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午4:24:12
  */
+
 @EnableResourceServer
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -28,8 +29,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.csrf().disable().exceptionHandling()
 				.authenticationEntryPoint(
 						(request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
-				.and().authorizeRequests()
-				.antMatchers(PermitAllUrl.permitAllUrl("/users-anon/**", "/wechat/**")).permitAll() // 放开权限的url
+				.and().authorizeRequests().antMatchers(PermitAllUrl.permitAllUrl("/users-anon/**", "/wechat/**"))
+				.permitAll() // 放开权限的url
 				.anyRequest().authenticated().and().httpBasic();
 	}
 

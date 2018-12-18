@@ -3,8 +3,8 @@ package com.cloud.model.user.constants;
 /**
  * rabbitmq的exchange和routing key定义
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:03:26
  */
 public interface UserCenterMq {
 

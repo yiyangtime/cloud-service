@@ -31,7 +31,6 @@ public class ServiceInstanceController {
             List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
             map.put(serviceId, instances);
         });
-
         return map;
     }
 }

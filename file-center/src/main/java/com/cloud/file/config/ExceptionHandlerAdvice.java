@@ -17,7 +17,6 @@ public class ExceptionHandlerAdvice {
 		Map<String, Object> data = new HashMap<>();
 		data.put("code", HttpStatus.BAD_REQUEST.value());
 		data.put("message", exception.getMessage());
-
 		return data;
 	}
 }

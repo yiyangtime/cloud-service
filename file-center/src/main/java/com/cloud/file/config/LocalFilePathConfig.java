@@ -12,8 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 使系统加载jar包外的文件
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午3:33:53
  */
 @Configuration
 public class LocalFilePathConfig {

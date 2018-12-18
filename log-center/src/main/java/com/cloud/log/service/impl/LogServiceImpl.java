@@ -17,10 +17,11 @@ import com.cloud.model.log.Log;
 
 /**
  * 日志存储到mysql实现
- *
- * @author 小威老师 xiaoweijiagou@163.com
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:58:56
  */
-//@Primary
+// @Primary
 @Service
 public class LogServiceImpl implements LogService {
 
@@ -42,7 +43,6 @@ public class LogServiceImpl implements LogService {
 		if (log.getFlag() == null) {
 			log.setFlag(Boolean.TRUE);
 		}
-
 		logDao.save(log);
 	}
 
@@ -52,7 +52,6 @@ public class LogServiceImpl implements LogService {
 		List<Log> list = Collections.emptyList();
 		if (total > 0) {
 			PageUtil.pageParamConver(params, true);
-
 			list = logDao.findData(params);
 		}
 		return new Page<>(total, list);

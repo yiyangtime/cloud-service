@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * 日志管理controller
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:54:49
+ */
 @RestController
 public class LogController {
 

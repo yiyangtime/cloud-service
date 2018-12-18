@@ -10,6 +10,12 @@ import org.apache.ibatis.annotations.Select;
 
 import com.cloud.file.model.FileInfo;
 
+/**
+ * 文件管理dao
+ * 
+ * @author LS
+ * @date 2018年12月18日下午3:36:09
+ */
 @Mapper
 public interface FileDao {
 

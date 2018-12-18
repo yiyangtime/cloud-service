@@ -33,11 +33,8 @@ public class ExceptionHandlerAdvice {
 		if (httpStatus >= 500) {
 			log.error("feignClient调用异常", exception);
 		}
-
 		Map<String, Object> data = new HashMap<>();
-
 		String msg = exception.getMessage();
-
 		if (!StringUtils.isEmpty(msg)) {
 			int index = msg.indexOf("\n");
 			if (index > 0) {
@@ -51,11 +48,8 @@ public class ExceptionHandlerAdvice {
 		if (data.isEmpty()) {
 			data.put("message", msg);
 		}
-
 		data.put("code", httpStatus + "");
-
 		response.setStatus(httpStatus);
-
 		return data;
 	}
 
@@ -65,7 +59,6 @@ public class ExceptionHandlerAdvice {
 		Map<String, Object> data = new HashMap<>();
 		data.put("code", HttpStatus.BAD_REQUEST.value());
 		data.put("message", exception.getMessage());
-
 		return data;
 	}
 }

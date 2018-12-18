@@ -9,9 +9,10 @@ import com.cloud.model.user.constants.UserCenterMq;
 /**
  * rabbitmq配置
  * 
- * @author 小威老师
- *
+ * @author LS
+ * @date 2018年12月18日下午4:23:57
  */
+
 @Configuration
 public class RabbitmqConfig {
 
